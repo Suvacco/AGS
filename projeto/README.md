@@ -15,3 +15,14 @@ Após um aluno se inscrever para um semestre, o sistema de cobranças é notific
 Os professores podem acessar o sistema para saber quais são os alunos que estão matriculados em cada disciplina.
 
 Todos os usuários do sistema têm senhas que são utilizadas para validação do respectivo login.
+
+## Histórias de Usuário
+- Eu, como **aluno da universidade**, gostaria de me matricular em disciplinas para montar minha grade curricular do semestre letivo.
+- Eu, como **aluno da universidade**, gostaria cancelar uma matrícula para me desinscrever de uma matéria caso eu desista de realizá-la.
+- Eu, como **aluno da universidade**, gostaria de fazer login no sistema para proteger meus dados pessoais.
+- Eu, como **professor da universidade**, gostaria de visualizar os alunos matriculados em uma disciplina para gerenciar a turma.
+- Eu, como **funcionário da secretaria universitária**, gostaria de gerar currículos de cada semestre letivo contendo as respectivas disciplinas de cada curso.
+- Eu, como **funcionário da secretaria universitária**, gostaria de criar, editar, remover e visualizar informações sobre disciplinas, professores e alunos.
+
+## Diagrama de Caso de Uso
+![Diagrama de Caso de Uso](./diagrama_de_caso_de_uso/Diagrama%20de%20Caso%20de%20Uso.jpg)
