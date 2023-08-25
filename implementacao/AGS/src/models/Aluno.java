@@ -19,7 +19,7 @@ public class Aluno implements Usuario {
     }
 
     // Métodos
-    public void matricularEmDisciplina(Disciplina disciplina) {
+    private void matricularEmDisciplina(Disciplina disciplina) {
         this.gradeCurricular.add(disciplina);
     }
 

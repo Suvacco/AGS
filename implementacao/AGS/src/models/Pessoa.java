@@ -20,9 +20,4 @@ public class Pessoa {
     void renomear(String novoNome) {
         this.nome = novoNome;
     }
-
-    public void login() {
-
-    }
-
 }
