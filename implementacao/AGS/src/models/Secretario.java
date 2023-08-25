@@ -24,10 +24,16 @@ public class Secretario implements Usuario {
     }
 
     private void renomearDisciplina(Disciplina disciplina, String novoNome) {
+        if (disciplina == null)
+            throw new NullPointerException("A disciplina não pode ser null");
+
         disciplina.renomear(novoNome);
     }
 
     private void atribuirProfessor(Disciplina disciplina, Professor professorResponsavel) {
+        if (disciplina == null)
+            throw new NullPointerException("A disciplina não pode ser null");
+
         disciplina.atribuirProfessor(professorResponsavel);
     }
 
