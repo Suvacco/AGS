@@ -1,8 +1,8 @@
 package models;
 
-public class Secretario extends Pessoa implements Usuario{
+public class Secretario implements Usuario {
 
-    // TODO Inserir parâmetros e valores de retorno
+    // TODO Inserir parâmetros e valores de retorno das funções vazias
 
     private void gerarCurriculo() {
 
@@ -15,16 +15,20 @@ public class Secretario extends Pessoa implements Usuario{
 
     }
 
-    private void adicionarDisciplina() {
+    private void adicionarDisciplina(Disciplina disciplina) {
 
     }
 
-    private void removerDisciplina() {
+    private void removerDisciplina(Disciplina disciplina) {
 
     }
 
-    private void renomearDisciplina() {
+    private void renomearDisciplina(Disciplina disciplina, String novoNome) {
+        disciplina.renomear(novoNome);
+    }
 
+    private void atribuirProfessor(Disciplina disciplina, Professor professorResponsavel) {
+        disciplina.atribuirProfessor(professorResponsavel);
     }
 
     /*
@@ -35,16 +39,16 @@ public class Secretario extends Pessoa implements Usuario{
 
     }
 
-    private void adicionarProfessor() {
+    private void adicionarProfessor(Professor professor) {
 
     }
 
-    private void removerProfessor() {
+    private void removerProfessor(Professor professor) {
 
     }
 
-    private void renomearProfessor() {
-
+    private void renomearProfessor(Pessoa professor, String novoNome) {
+        professor.renomear(novoNome);
     }
 
     /*
@@ -55,16 +59,16 @@ public class Secretario extends Pessoa implements Usuario{
 
     }
 
-    private void adicionarAluno() {
+    private void adicionarAluno(Aluno aluno) {
 
     }
 
-    private void removerAluno() {
+    private void removerAluno(Aluno aluno) {
 
     }
 
-    private void renomearAluno() {
-
+    private void renomearAluno(Pessoa aluno, String novoNome) {
+        aluno.renomear(novoNome);
     }
 
 }

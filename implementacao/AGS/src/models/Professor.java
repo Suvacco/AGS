@@ -1,6 +1,6 @@
 package models;
 
-public class Professor extends Pessoa implements Usuario{
+public class Professor implements Usuario {
 
     private void visualizarMatriculas() {
 

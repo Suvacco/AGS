@@ -5,4 +5,8 @@ public interface Usuario {
 
     }
 
+    default void logout() {
+
+    }
+
 }
