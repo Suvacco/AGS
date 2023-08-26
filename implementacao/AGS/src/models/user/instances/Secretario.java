@@ -1,4 +1,11 @@
-package models;
+package models.user.instances;
+
+import managers.DisciplinaManager;
+import models.Disciplina;
+import models.Pessoa;
+import models.user.Usuario;
+import models.user.instances.Aluno;
+import models.user.instances.Professor;
 
 public class Secretario implements Usuario {
 
@@ -16,11 +23,17 @@ public class Secretario implements Usuario {
     }
 
     private void adicionarDisciplina(Disciplina disciplina) {
+        if (disciplina == null)
+            throw new NullPointerException("A disciplina não pode ser null");
 
+        DisciplinaManager.adicionarDisciplinaNoSistema(disciplina);
     }
 
     private void removerDisciplina(Disciplina disciplina) {
+        if (disciplina == null)
+            throw new NullPointerException("A disciplina não pode ser null");
 
+        DisciplinaManager.removerDisciplinaDoSistema(disciplina);
     }
 
     private void renomearDisciplina(Disciplina disciplina, String novoNome) {
@@ -30,7 +43,7 @@ public class Secretario implements Usuario {
         disciplina.renomear(novoNome);
     }
 
-    private void atribuirProfessor(Disciplina disciplina, Professor professorResponsavel) {
+    private void atribuirProfessor(Disciplina disciplina, Pessoa professorResponsavel) {
         if (disciplina == null)
             throw new NullPointerException("A disciplina não pode ser null");
 

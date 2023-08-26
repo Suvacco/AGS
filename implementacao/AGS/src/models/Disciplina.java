@@ -1,25 +1,41 @@
 package models;
 
+import models.user.instances.Professor;
+
 public class Disciplina {
 
     // Atributos
     private String nome;
     private String id;
-    private Professor profResponsavel;
+    private Pessoa professor;
 
     // Construtores
     public Disciplina(String nome, String id) {
         this.nome = nome;
         this.id = id;
-        this.profResponsavel = null;
+        this.professor = null;
     }
 
     // Métodos
-    void atribuirProfessor(Professor professor) {
-        this.profResponsavel = professor;
+    public void atribuirProfessor(Pessoa professor) {
+        if (professor.getTipo() instanceof Professor) {
+            this.professor = professor;
+        }
     }
 
-    void renomear(String nome) {
+    public void renomear(String nome) {
         this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public Pessoa getProfessor() {
+        return professor;
     }
 }
