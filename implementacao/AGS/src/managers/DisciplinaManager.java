@@ -1,12 +1,12 @@
 package managers;
 
-import models.Disciplina;
-import models.Pessoa;
-import models.user.instances.Professor;
+import models.*;
+import exceptions.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -36,9 +36,14 @@ public class DisciplinaManager {
 
     public void adicionarDisciplinaNoSistema(String dados[]) {
         Disciplina disciplina = new Disciplina(dados[0], dados[1]);
+        Pessoa professor = null;
 
         if (dados[2] != null) {
-            Pessoa professor = UsuarioManager.findUsuario(dados[2]);
+            try {
+                professor = UsuarioManager.findUsuario(dados[2]);
+            } catch (ObjectNotFoundException e) {
+                System.out.println("Não foi possível adicionar disciplina no sistema pois o professor de id " + dados[2] + " não foi encontrado.");
+            }
 
             if (professor != null) {
                 disciplina.atribuirProfessor(professor);
@@ -62,9 +67,7 @@ public class DisciplinaManager {
             String[] split = scanner.nextLine().split(";");
 
             try {
-
                 adicionarDisciplinaNoSistema(split);
-
             } catch (NullPointerException e) {
                 System.out.println(line + ":" + split);
             }
@@ -75,7 +78,15 @@ public class DisciplinaManager {
         scanner.close();
     }
 
-    public static Disciplina findDisciplina(String id) {
-        return disciplinas.stream().filter(disciplinas -> disciplinas.getId().equals(id)).findFirst().orElse(null);
+    public static Disciplina findDisciplina(String id) throws ObjectNotFoundException {
+        Optional<Disciplina> optionalDisciplina = disciplinas.stream()
+                .filter(disciplina -> disciplina.getId().equals(id))
+                .findFirst();
+
+        if (optionalDisciplina.isPresent()) {
+            return optionalDisciplina.get();
+        } else {
+            throw new ObjectNotFoundException("Disciplina de id " + id + " não encontrada.");
+        }
     }
 }

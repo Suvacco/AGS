@@ -1,5 +1,6 @@
 package managers;
 
+import exceptions.ObjectNotFoundException;
 import models.Disciplina;
 import models.Pessoa;
 import models.user.instances.Aluno;
@@ -21,6 +22,7 @@ public class MatriculaManager {
     }
 
     public void cadastrarMatriculaEmAluno(String dados[]) {
+        Disciplina disciplina = null;
         Pessoa pessoa = UsuarioManager.findUsuario(dados[0]);
 
         if (pessoa == null) {
@@ -31,13 +33,13 @@ public class MatriculaManager {
             return;
         }
 
-        Disciplina disciplina = DisciplinaManager.findDisciplina(dados[1]);
-
-        if (disciplina == null) {
-            return;
+        try {
+            disciplina = DisciplinaManager.findDisciplina(dados[1]);
+        } catch (ObjectNotFoundException e) {
+            System.out.println("Erro: não foi possível cadastrar matrícula pois a disciplina de id " + dados[1] +  " não foi encontrada.");
         }
 
-        ((Aluno)pessoa.getTipo()).matricularEmDisciplina(disciplina);
+        ((Aluno) pessoa.getTipo()).matricularEmDisciplina(disciplina);
     }
 
     public void carregarMatriculas(String path) throws FileNotFoundException {
@@ -54,9 +56,7 @@ public class MatriculaManager {
             String[] split = scanner.nextLine().split(";");
 
             try {
-
                 cadastrarMatriculaEmAluno(split);
-
             } catch (NullPointerException e) {
                 System.out.println(line + ":" + split);
             }

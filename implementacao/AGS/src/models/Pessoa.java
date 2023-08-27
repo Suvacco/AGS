@@ -1,6 +1,6 @@
 package models;
 
-import models.user.Usuario;
+import models.user.IPessoa;
 import models.user.instances.Aluno;
 import models.user.instances.Professor;
 import models.user.instances.Secretario;
@@ -8,13 +8,13 @@ import models.user.instances.Secretario;
 public class Pessoa {
 
     // Atributos
-    public String nome;
-    public String id;
-    public String senha;
-    public Usuario tipo;
+    private String nome;
+    private String id;
+    private String senha;
+    private IPessoa tipo;
 
     // Construtores
-    public Pessoa(String id, String senha, String nome, Usuario tipo) {
+    public Pessoa(String id, String senha, String nome, IPessoa tipo) {
         this.nome = nome;
         this.id = id;
         this.senha = senha;
@@ -28,6 +28,7 @@ public class Pessoa {
         this.tipo = findTipoByString(tipo);
     }
 
+    // Getters e Setters
     public String getNome() {
         return nome;
     }
@@ -40,7 +41,7 @@ public class Pessoa {
         return senha;
     }
 
-    public Usuario getTipo() {
+    public IPessoa getTipo() {
         return tipo;
     }
 
@@ -49,7 +50,7 @@ public class Pessoa {
         this.nome = novoNome;
     }
 
-    private Usuario findTipoByString(String tipo) {
+    private IPessoa findTipoByString(String tipo) {
         switch (tipo) {
             case "PROFESSOR" -> {
                 return new Professor();

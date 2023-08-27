@@ -3,11 +3,9 @@ package models.user.instances;
 import managers.DisciplinaManager;
 import models.Disciplina;
 import models.Pessoa;
-import models.user.Usuario;
-import models.user.instances.Aluno;
-import models.user.instances.Professor;
+import models.user.IPessoa;
 
-public class Secretario implements Usuario {
+public class Secretario implements IPessoa {
 
     // TODO Inserir parâmetros e valores de retorno das funções vazias
 

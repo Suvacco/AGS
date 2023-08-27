@@ -1,8 +1,8 @@
 package models.user.instances;
 
-import models.user.Usuario;
+import models.user.IPessoa;
 
-public class Professor implements Usuario {
+public class Professor implements IPessoa {
 
     private void visualizarMatriculas() {
 

@@ -1,5 +1,8 @@
+import models.*;
+import models.user.instances.*;
 import system.AGS;
 
+import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
@@ -13,16 +16,20 @@ public class Main {
     }
 
     public static void init() {
-        System.out.println("Olá, seja bem-vindo ao AGS!");
-        System.out.println("");
+        System.out.println("Olá, seja bem-vindo ao AGS!\n");
         System.out.println("Por favor, insira suas credenciais: ");
 
-        System.out.println("ID: ");
+        System.out.print("ID: ");
         String id = scanner.nextLine();
 
-        System.out.println("Senha: ");
+        System.out.print("Senha: ");
         String senha = scanner.nextLine();
 
         ags.logar(id, senha);
+
+        // Dúvida sobre Typecasting
+        Pessoa pes1 = new Pessoa("14", "123", "Joao Paulo", new Aluno());
+        Disciplina dis1 = new Disciplina("HISTORIA", "14");
+        ((Aluno) pes1.getTipo()).matricularEmDisciplina(dis1);
     }
 }
