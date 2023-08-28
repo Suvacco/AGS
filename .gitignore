@@ -3,6 +3,8 @@
 
 /.idea
 /implementacao/.idea
+.classpath
+.project
 
 # dependencies
 /node_modules
