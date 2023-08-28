@@ -22,6 +22,10 @@ public class DisciplinaManager {
         }
     }
 
+    public static void exibirDisciplinas() {
+        disciplinas.forEach(disciplina -> System.out.println(disciplina.getId() + " - " + disciplina.getNome()));
+    }
+
     public static void adicionarDisciplinaNoSistema(Disciplina disciplina) {
         disciplinas.add(disciplina);
     }
@@ -79,14 +83,21 @@ public class DisciplinaManager {
     }
 
     public static Disciplina findDisciplina(String id) throws ObjectNotFoundException {
-        Optional<Disciplina> optionalDisciplina = disciplinas.stream()
+        return disciplinas.stream()
                 .filter(disciplina -> disciplina.getId().equals(id))
-                .findFirst();
-
-        if (optionalDisciplina.isPresent()) {
-            return optionalDisciplina.get();
-        } else {
-            throw new ObjectNotFoundException("Disciplina de id " + id + " não encontrada.");
-        }
+                .findFirst()
+                .orElseThrow(() -> new ObjectNotFoundException("Disciplina de id " + id + " não encontrada."));
     }
+
+//    public static Disciplina findDisciplina(String id) throws ObjectNotFoundException {
+//        Optional<Disciplina> optionalDisciplina = disciplinas.stream()
+//                .filter(disciplina -> disciplina.getId().equals(id))
+//                .findFirst();
+//
+//        if (optionalDisciplina.isPresent()) {
+//            return optionalDisciplina.get();
+//        } else {
+//            throw new ObjectNotFoundException("Disciplina de id " + id + " não encontrada.");
+//        }
+//    }
 }

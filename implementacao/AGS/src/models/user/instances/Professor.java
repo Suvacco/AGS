@@ -8,4 +8,8 @@ public class Professor implements IPessoa {
 
     }
 
+    @Override
+    public void exibirMenu() {
+        System.out.println("1- Visualizar Matriculas");
+    }
 }

@@ -88,4 +88,11 @@ public class Secretario implements IPessoa {
         aluno.renomear(novoNome);
     }
 
+    @Override
+    public void exibirMenu() {
+        System.out.println("1- Gerenciar Disciplinas");
+        System.out.println("2- Gerenciar Professores");
+        System.out.println("3- Gerenciar Alunos");
+        System.out.println("4- Gerenciar Curriculo Semestral");
+    }
 }

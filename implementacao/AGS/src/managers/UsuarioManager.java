@@ -50,14 +50,9 @@ public class UsuarioManager {
     }
 
     public static Pessoa findUsuario(String id) throws ObjectNotFoundException {
-        Optional<Pessoa> optionalUsuario = pessoas.stream()
-            .filter(disciplina -> disciplina.getId().equals(id))
-            .findFirst();
-
-        if (optionalUsuario.isPresent()) {
-            return optionalUsuario.get();
-        } else {
-            throw new ObjectNotFoundException("Usuário de id " + id + " não encontrado.");
-        }
+        return pessoas.stream()
+                .filter(pessoa -> pessoa.getId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new ObjectNotFoundException("Usuário de id " + id + " não encontrado."));
     }
 }
