@@ -31,6 +31,11 @@ public class Aluno implements IPessoa {
     não que você está matriculando na disciplina. O obj "Disciplina" deveria ter uma lista de pessoas
     */
     // Dúvida
+    
+    public void matricularEmDisciplina(Disciplina disciplina) {
+    	this.gradeCurricular.add(disciplina);
+    }
+    
     public void matricularEmDisciplina() throws ObjectNotFoundException {
         DisciplinaManager.exibirDisciplinas();
 
@@ -47,6 +52,10 @@ public class Aluno implements IPessoa {
         } else {
             System.out.println("Você já está matriculado na disciplina " + disciplina.getNome());
         }
+    }
+    
+    public void cancelarMatriculaDisciplina(Disciplina disciplina) {
+    	this.gradeCurricular.remove(disciplina);
     }
 
     public void cancelarMatriculaDisciplina() throws ObjectNotFoundException {
@@ -82,9 +91,9 @@ public class Aluno implements IPessoa {
             System.out.println("2- Cancelar Matricula");
             System.out.println("3- Ver grade");
 
-            int option = scanner.nextInt();
+            String option = scanner.nextLine();
 
-            switch (option) {
+            switch (Integer.parseInt(option)) {
                 case 1:
                     matricularEmDisciplina();
                     break;

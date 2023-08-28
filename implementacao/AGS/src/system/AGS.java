@@ -9,9 +9,10 @@ import models.user.instances.*;
 import java.util.Scanner;
 
 public class AGS {
-    private static final Scanner scanner = new Scanner(System.in);
+    
+	private static final Scanner scanner = new Scanner(System.in);
 
-    Pessoa pessoaLogada;
+    public Pessoa pessoaLogada;
 
     public AGS() {
         new UsuarioManager();
@@ -69,7 +70,7 @@ public class AGS {
         System.out.println("Login realizado com sucesso! Seja bem-vindo(a), " + pessoa.getNome());
 
     }
-
+    
     // Dúvida
 //    public void matricularEmDisciplina(String idUsuario, String idDisciplina) {
 //        Pessoa pessoa = null;

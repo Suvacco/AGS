@@ -21,6 +21,10 @@ public class DisciplinaManager {
             System.out.print("Arquivo não encontrado: " + e.getMessage());
         }
     }
+    
+    public static Set<Disciplina> getDisciplinas() {
+    	return disciplinas;
+    }
 
     public static void exibirDisciplinas() {
         disciplinas.forEach(disciplina -> System.out.println(disciplina.getId() + " - " + disciplina.getNome()));
@@ -37,7 +41,7 @@ public class DisciplinaManager {
     public static void renomearDisciplina(Disciplina disciplina, String novoNome) {
         disciplina.renomear(novoNome);
     }
-
+    
     public void adicionarDisciplinaNoSistema(String dados[]) {
         Disciplina disciplina = new Disciplina(dados[0], dados[1]);
         Pessoa professor = null;

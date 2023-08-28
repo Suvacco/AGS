@@ -22,24 +22,25 @@ public class MatriculaManager {
     }
 
     public void cadastrarMatriculaEmAluno(String dados[]) {
-        Disciplina disciplina = null;
-        Pessoa pessoa = UsuarioManager.findUsuario(dados[0]);
-
-        if (pessoa == null) {
-            return;
-        }
-
-        if (!(pessoa.getTipo() instanceof Aluno)) {
-            return;
-        }
-
-        try {
-            disciplina = DisciplinaManager.findDisciplina(dados[1]);
-        } catch (ObjectNotFoundException e) {
-            System.out.println("Erro: não foi possível cadastrar matrícula pois a disciplina de id " + dados[1] +  " não foi encontrada.");
-        }
-
-        ((Aluno) pessoa.getTipo()).matricularEmDisciplina(disciplina);
+    	try {
+    		
+	        Pessoa pessoa = UsuarioManager.findUsuario(dados[0]);
+	
+	        if (pessoa == null) {
+	            return;
+	        }
+	
+	        if (!(pessoa.getTipo() instanceof Aluno)) {
+	            return;
+	        }
+	
+	        Disciplina disciplina = DisciplinaManager.findDisciplina(dados[1]);
+	
+	        ((Aluno) pessoa.getTipo()).matricularEmDisciplina(disciplina);
+        
+    	} catch (Exception e) {
+    		System.out.println(e.getMessage());
+    	}
     }
 
     public void carregarMatriculas(String path) throws FileNotFoundException {
