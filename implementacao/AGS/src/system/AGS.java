@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class AGS {
     
 	private static final Scanner scanner = new Scanner(System.in);
+	private int option = 99;
 
     public Pessoa pessoaLogada;
 
@@ -45,7 +46,7 @@ public class AGS {
     }
 
     public void actionMenu() {
-        while (true) {
+        while (option != 0) {
             System.out.println("");
             System.out.println("AGS");
             System.out.println("");
@@ -53,6 +54,8 @@ public class AGS {
             System.out.println("");
             System.out.println("0 - Sair");
             System.out.println("");
+            
+       
 
             pessoaLogada.getTipo().exibirMenu();
         }
