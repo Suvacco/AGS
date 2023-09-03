@@ -2,7 +2,7 @@ package managers;
 
 import exceptions.ObjectNotFoundException;
 import models.Disciplina;
-import models.Pessoa;
+import models.user.Pessoa;
 import models.user.instances.Aluno;
 
 import java.io.File;
@@ -31,6 +31,7 @@ public class MatriculaManager {
 
             try {
                 cadastrarMatriculaEmAluno(split);
+                cadastrarAlunoEmDisciplina(split);
             } catch (NullPointerException e) {
                 System.out.println(line + ":" + split);
             }
@@ -39,6 +40,27 @@ public class MatriculaManager {
         }
 
         scanner.close();
+    }
+
+    private void cadastrarAlunoEmDisciplina(String[] dados) {
+        try {
+            Pessoa pessoa = UsuarioManager.findUsuario(dados[0]);
+
+            if (pessoa == null) {
+                return;
+            }
+
+            if (!(pessoa.getTipo() instanceof Aluno)) {
+                return;
+            }
+
+            Disciplina disciplina = DisciplinaManager.findDisciplina(dados[1]);
+
+            disciplina.adicionarAluno(pessoa);
+
+        } catch (ObjectNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public void cadastrarMatriculaEmAluno(String dados[]) {
@@ -61,4 +83,5 @@ public class MatriculaManager {
     		System.out.println(e.getMessage());
     	}
     }
+
 }

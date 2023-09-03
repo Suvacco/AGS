@@ -6,12 +6,14 @@ import java.util.Set;
 
 import exceptions.ObjectNotFoundException;
 import managers.DisciplinaManager;
+import managers.MatriculaManager;
+import models.Disciplina;
 import models.user.IPessoa;
 
 public class Professor implements IPessoa {
 
     // Atributos
-    private Set<Integer> idsClasses;
+    private Set<String> idsClasses;
 
     // Construtores
     public Professor() {
@@ -21,7 +23,10 @@ public class Professor implements IPessoa {
     // Métodos
     @Override
     public void exibirMenu() {
-        System.out.println("1 - Visualizar minhas classes");
+        System.out.println("""
+            1 - Visualizar minhas classes
+            2 - Visualizar alunos por classe
+        """);
 
         System.out.print("OP: ");
         String option = new Scanner(System.in).nextLine();
@@ -30,10 +35,13 @@ public class Professor implements IPessoa {
         	case 1:
                 imprimirDisciplinas();
         		break;
+            case 2:
+                imprimirAlunosDeDisciplina();
+                break;
 		}
     }
 
-    public void cadastrarEmDisciplina(int idDisciplina) {
+    public void cadastrarEmDisciplina(String idDisciplina) {
         this.idsClasses.add(idDisciplina);
     }
 
@@ -42,10 +50,23 @@ public class Professor implements IPessoa {
 
         idsClasses.forEach(disciplina -> {
             try {
-                System.out.println("\t" + DisciplinaManager.findDisciplina(String.valueOf(disciplina)).getNome());
+                System.out.println("\t" + DisciplinaManager.findDisciplina(disciplina));
             } catch (ObjectNotFoundException e) {
                 System.out.println(e.getMessage());
             }
         });
     }
+
+    private void imprimirAlunosDeDisciplina() {
+        idsClasses.forEach(id -> {
+            try {
+                System.out.println("\n" + DisciplinaManager.findDisciplina(id).getNome());
+                DisciplinaManager.findDisciplina(id).imprimirAlunos();
+
+            } catch (ObjectNotFoundException e) {
+                e.getMessage();
+            }
+        });
+    }
+
 }

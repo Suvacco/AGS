@@ -1,7 +1,7 @@
 package managers;
 
 import exceptions.ObjectNotFoundException;
-import models.Pessoa;
+import models.user.Pessoa;
 import models.user.instances.Professor;
 
 import java.io.File;

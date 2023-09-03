@@ -2,7 +2,7 @@ package system;
 
 import exceptions.ObjectNotFoundException;
 import managers.*;
-import models.*;
+import models.user.Pessoa;
 
 import java.util.Scanner;
 
@@ -16,6 +16,7 @@ public class AGS {
     public AGS() {
         new UsuarioManager();
         new DisciplinaManager();
+        new MatriculaManager();
         new ClassesManager();
     }
 

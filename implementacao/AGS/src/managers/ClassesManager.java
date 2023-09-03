@@ -1,7 +1,7 @@
 package managers;
 
 import exceptions.ObjectNotFoundException;
-import models.*;
+import models.user.Pessoa;
 import models.user.instances.*;
 
 import java.io.File;
@@ -47,11 +47,9 @@ public class ClassesManager {
         try {
             professor = UsuarioManager.findUsuario(dados[0]);
 
-            ((Professor) professor.getTipo()).cadastrarEmDisciplina(Integer.parseInt(dados[1]));
+            ((Professor) professor.getTipo()).cadastrarEmDisciplina((dados[1]));
         } catch (ObjectNotFoundException e) {
             System.out.println(e.getMessage());
         }
     }
-
-
 }

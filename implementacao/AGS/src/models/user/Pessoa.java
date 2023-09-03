@@ -1,6 +1,5 @@
-package models;
+package models.user;
 
-import models.user.IPessoa;
 import models.user.instances.Aluno;
 import models.user.instances.Professor;
 import models.user.instances.Secretario;
@@ -64,5 +63,10 @@ public class Pessoa {
         }
 
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return  "\nId: " + this.id + "\nSenha " + this.senha + "\nNome: " + this.nome + "\nTipo: " + this.tipo.getClass();
     }
 }

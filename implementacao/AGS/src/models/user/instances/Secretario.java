@@ -5,7 +5,7 @@ import java.util.Scanner;
 import exceptions.ObjectNotFoundException;
 import managers.DisciplinaManager;
 import models.Disciplina;
-import models.Pessoa;
+import models.user.Pessoa;
 import models.user.IPessoa;
 
 public class Secretario implements IPessoa {
@@ -48,7 +48,7 @@ public class Secretario implements IPessoa {
         if (disciplina == null)
             throw new NullPointerException("A disciplina não pode ser null");
 
-        ((Professor) professorResponsavel.getTipo()).cadastrarEmDisciplina(Integer.parseInt(disciplina.getId()));
+        ((Professor) professorResponsavel.getTipo()).cadastrarEmDisciplina(disciplina.getId());
     }
 
     /*
