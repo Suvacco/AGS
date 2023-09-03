@@ -6,7 +6,6 @@ import exceptions.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -18,7 +17,7 @@ public class DisciplinaManager {
         try {
             this.carregarDisciplinas("database/disciplinas.csv");
         } catch (FileNotFoundException e) {
-            System.out.print("Arquivo não encontrado: " + e.getMessage());
+            System.out.print("Erro: Arquivo não encontrado: " + e.getMessage());
         }
     }
     
@@ -28,6 +27,11 @@ public class DisciplinaManager {
 
     public static void exibirDisciplinas() {
         disciplinas.forEach(disciplina -> System.out.println(disciplina.getId() + " - " + disciplina.getNome()));
+    }
+
+    public void adicionarDisciplinaNoSistema(String[] dados) {
+        Disciplina disciplina = new Disciplina(dados[0], dados[1]);
+        disciplinas.add(disciplina);
     }
 
     public static void adicionarDisciplinaNoSistema(Disciplina disciplina) {
@@ -41,38 +45,16 @@ public class DisciplinaManager {
     public static void renomearDisciplina(Disciplina disciplina, String novoNome) {
         disciplina.renomear(novoNome);
     }
-    
-    public void adicionarDisciplinaNoSistema(String dados[]) {
-        Disciplina disciplina = new Disciplina(dados[0], dados[1]);
-        Pessoa professor = null;
-
-        if (dados[2] != null) {
-            try {
-                professor = UsuarioManager.findUsuario(dados[2]);
-            } catch (ObjectNotFoundException e) {
-                System.out.println("Não foi possível adicionar disciplina no sistema pois o professor de id " + dados[2] + " não foi encontrado.");
-            }
-
-            if (professor != null) {
-                disciplina.atribuirProfessor(professor);
-            }
-        }
-
-        disciplinas.add(disciplina);
-    }
 
     public void carregarDisciplinas(String path) throws FileNotFoundException {
         File file = new File(path);
 
         Scanner scanner = new Scanner(file);
-
         scanner.nextLine();
-
         int line = 0;
 
         while (scanner.hasNextLine()) {
-
-            String[] split = scanner.nextLine().split(";");
+            String[] split = scanner.nextLine().split(",");
 
             try {
                 adicionarDisciplinaNoSistema(split);
@@ -90,18 +72,6 @@ public class DisciplinaManager {
         return disciplinas.stream()
                 .filter(disciplina -> disciplina.getId().equals(id))
                 .findFirst()
-                .orElseThrow(() -> new ObjectNotFoundException("Disciplina de id " + id + " não encontrada."));
+                .orElseThrow(() -> new ObjectNotFoundException("Erro: Disciplina de id " + id + " não encontrada."));
     }
-
-//    public static Disciplina findDisciplina(String id) throws ObjectNotFoundException {
-//        Optional<Disciplina> optionalDisciplina = disciplinas.stream()
-//                .filter(disciplina -> disciplina.getId().equals(id))
-//                .findFirst();
-//
-//        if (optionalDisciplina.isPresent()) {
-//            return optionalDisciplina.get();
-//        } else {
-//            throw new ObjectNotFoundException("Disciplina de id " + id + " não encontrada.");
-//        }
-//    }
 }

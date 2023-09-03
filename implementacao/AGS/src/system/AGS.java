@@ -3,8 +3,6 @@ package system;
 import exceptions.ObjectNotFoundException;
 import managers.*;
 import models.*;
-import models.user.IPessoa;
-import models.user.instances.*;
 
 import java.util.Scanner;
 
@@ -18,12 +16,12 @@ public class AGS {
     public AGS() {
         new UsuarioManager();
         new DisciplinaManager();
+        new ClassesManager();
     }
 
     public void loginMenu() {
         while (true) {
             try {
-
                 System.out.println("Olá, seja bem-vindo ao AGS!\n");
                 System.out.println("Por favor, insira suas credenciais: ");
 
@@ -47,15 +45,10 @@ public class AGS {
 
     public void actionMenu() {
         while (option != 0) {
-            System.out.println("");
-            System.out.println("AGS");
-            System.out.println("");
-            System.out.println("Digite o numero da operação para realiza-la");
-            System.out.println("");
-            System.out.println("0 - Sair");
-            System.out.println("");
-            
-       
+            System.out.println("\n-------------------- AGS --------------------");
+            System.out.println("Seja bem-vindo(a), " + pessoaLogada.getNome());
+            System.out.println("\nDigite o numero da operação para realizá-la:");
+            System.out.println("\n0 - Sair");
 
             pessoaLogada.getTipo().exibirMenu();
         }
@@ -70,27 +63,7 @@ public class AGS {
 
         this.pessoaLogada = pessoa;
 
-        System.out.println("Login realizado com sucesso! Seja bem-vindo(a), " + pessoa.getNome());
+        System.out.println("\nLogin realizado com sucesso!");
 
     }
-    
-    // Dúvida
-//    public void matricularEmDisciplina(String idUsuario, String idDisciplina) {
-//        Pessoa pessoa = null;
-//        Disciplina disciplina = null;
-//
-//        try {
-//            pessoa = UsuarioManager.findUsuario(idUsuario);
-//        } catch (ObjectNotFoundException e) {
-//            System.out.println(e.getMessage());
-//        }
-//
-//        try {
-//            disciplina = DisciplinaManager.findDisciplina(idDisciplina);
-//        } catch (ObjectNotFoundException e) {
-//            System.out.println(e.getMessage());
-//        }
-//
-//        ((Aluno) pessoa.getTipo()).matricularEmDisciplina(disciplina);
-//    }
 }

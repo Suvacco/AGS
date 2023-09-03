@@ -1,15 +1,12 @@
 package managers;
 
 import exceptions.ObjectNotFoundException;
-import models.Disciplina;
 import models.Pessoa;
-import models.user.instances.Aluno;
 import models.user.instances.Professor;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -25,7 +22,7 @@ public class UsuarioManager {
         try {
             this.carregarUsuarios("database/usuarios.csv");
         } catch (FileNotFoundException e) {
-            System.out.print("Arquivo não encontrado: " + e.getMessage());
+            System.out.print("Erro: Arquivo não encontrado: " + e.getMessage());
         }
     }
 
@@ -38,8 +35,7 @@ public class UsuarioManager {
         int line = 0;
 
         while (scanner.hasNextLine()) {
-
-            String[] split = scanner.nextLine().split(";");
+            String[] split = scanner.nextLine().split(",");
 
             try {
                 adicionarUsuarioNoSistema(split);
@@ -52,33 +48,12 @@ public class UsuarioManager {
         scanner.close();
     }
     
-    public static void imprimirMatriculasDeUmProfessor(Professor professor) {
-    	
-    	// Acredite isso aqui é MUITO avacalhado e deve ser corrigido o quanto antes,
-    	// Talvez a estrutura de dados atual não esteja fazendo muito sentido
-    	// Esse código procura no Set<Disciplina> quais as disciplinas que o professor do parametro faz parte
-    	// Depois procura no Set<Pessoa> pessoas do tipo "Aluno" que tem a disciplina na List<Disciplina> gradeCurricular
-    	// TODO: Refatorar
-    	DisciplinaManager.getDisciplinas().forEach(disciplina -> {
-    		
-    		if (disciplina.getProfessor().equals(professor)) {
-    			
-				System.out.println(disciplina.getNome().toUpperCase());
-    			
-    			pessoas.forEach(pessoa -> {
-    				
-    				if (pessoa.getTipo() instanceof Aluno) {
-
-    					if (((Aluno)pessoa.getTipo()).getGradeCurricular().contains(disciplina)) {
-    						
-    						System.out.println("  - " + pessoa.getNome() + " - " + pessoa.getId());
-    						
-    					}
-    				}
-    			});
-    		}
-    	});
-    	
+    public static void imprimirDisciplinasDosProfessores(Professor professor) {
+        pessoas.forEach(pessoa -> {
+            if (pessoa.getTipo() instanceof Professor) {
+                ((Professor) pessoa.getTipo()).imprimirDisciplinas();
+            }
+        });
     }
 
     private void adicionarUsuarioNoSistema(String[] dados) {
@@ -87,7 +62,7 @@ public class UsuarioManager {
     	String senha = dados[1];
     	String nome = dados[2];
     	String tipo = dados[3];
-    	
+
         pessoas.add(new Pessoa(id, senha, nome, tipo));
     }
     
@@ -95,6 +70,6 @@ public class UsuarioManager {
         return pessoas.stream()
                 .filter(pessoa -> pessoa.getId().equals(id))
                 .findFirst()
-                .orElseThrow(() -> new ObjectNotFoundException("Usuário de id " + id + " não encontrado."));
+                .orElseThrow(() -> new ObjectNotFoundException("Erro: Usuário de id " + id + " não encontrado"));
     }
 }

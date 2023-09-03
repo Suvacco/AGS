@@ -87,10 +87,11 @@ public class Aluno implements IPessoa {
 
             Scanner scanner = new Scanner(System.in);
 
-            System.out.println("1- Matricular");
-            System.out.println("2- Cancelar Matricula");
-            System.out.println("3- Ver grade");
+            System.out.println("1 - Matricular");
+            System.out.println("2 - Cancelar Matricula");
+            System.out.println("3 - Ver grade");
 
+            System.out.print("OP: ");
             String option = scanner.nextLine();
 
             switch (Integer.parseInt(option)) {

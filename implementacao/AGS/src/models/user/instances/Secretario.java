@@ -12,8 +12,6 @@ public class Secretario implements IPessoa {
 	
 	private static Scanner scanner = new Scanner(System.in);
 
-    // TODO Inserir parâmetros e valores de retorno das funções vazias
-
     private void gerarCurriculo() {
 
     }
@@ -50,7 +48,7 @@ public class Secretario implements IPessoa {
         if (disciplina == null)
             throw new NullPointerException("A disciplina não pode ser null");
 
-        disciplina.atribuirProfessor(professorResponsavel);
+        ((Professor) professorResponsavel.getTipo()).cadastrarEmDisciplina(Integer.parseInt(disciplina.getId()));
     }
 
     /*
@@ -111,7 +109,8 @@ public class Secretario implements IPessoa {
         		System.out.println("2- Adicionar disciplinas");
         		System.out.println("3- Remover disciplinas");
         		System.out.println("4- Renomear disciplinas");
-        		
+
+                System.out.print("OP: ");
         		String option1 = scanner.nextLine();
         		
         		switch(Integer.parseInt(option1)) {

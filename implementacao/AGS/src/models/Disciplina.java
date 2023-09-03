@@ -5,28 +5,16 @@ import models.user.instances.Professor;
 public class Disciplina {
 
     // Atributos
-    private String nome;
     private String id;
-    private Pessoa professor;
+    private String nome;
 
     // Construtores
-    public Disciplina(String nome, String id) {
-        this.nome = nome;
+    public Disciplina(String id, String nome) {
         this.id = id;
-        this.professor = null;
-    }
-
-    // Métodos
-    public void atribuirProfessor(Pessoa professor) {
-        if (professor.getTipo() instanceof Professor) {
-            this.professor = professor;
-        }
-    }
-
-    public void renomear(String nome) {
         this.nome = nome;
     }
 
+    // Getters e setters
     public String getNome() {
         return nome;
     }
@@ -35,7 +23,18 @@ public class Disciplina {
         return id;
     }
 
-    public Pessoa getProfessor() {
-        return professor;
+//    public Pessoa getProfessor() {
+//        return professor;
+//    }
+
+    // Métodos
+//    public void atribuirProfessor(Pessoa professor) {
+//        if (professor.getTipo() instanceof Professor) {
+//            this.professor = professor;
+//        }
+//    }
+
+    public void renomear(String nome) {
+        this.nome = nome;
     }
 }
