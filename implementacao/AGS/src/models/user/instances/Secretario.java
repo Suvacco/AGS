@@ -64,7 +64,7 @@ public class Secretario implements IPessoa {
                         idDisciplina = scanner.nextLine();
 
                         try {
-                            removerDisciplina(DisciplinaManager.findDisciplina(idDisciplina));
+                            removerDisciplina(DisciplinaManager.getInstance().findDisciplina(idDisciplina));
                         } catch (ObjectNotFoundException e) {
                             e.printStackTrace();
                         }
@@ -77,7 +77,7 @@ public class Secretario implements IPessoa {
                         String novoNome = scanner.nextLine();
 
                         try {
-                            renomearDisciplina(DisciplinaManager.findDisciplina(idDisciplina), novoNome);
+                            renomearDisciplina(DisciplinaManager.getInstance().findDisciplina(idDisciplina), novoNome);
                         } catch (ObjectNotFoundException e) {
                             e.printStackTrace();
                         }

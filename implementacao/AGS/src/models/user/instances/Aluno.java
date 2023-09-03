@@ -32,7 +32,7 @@ public class Aluno implements IPessoa {
     */
     // Dúvida
     
-    public void matricularEmDisciplina(Disciplina disciplina) {
+    public void realizarMatriculaNaMemoria(Disciplina disciplina) {
     	this.gradeCurricular.add(disciplina);
     }
     
@@ -43,10 +43,11 @@ public class Aluno implements IPessoa {
 
         String id = new Scanner(System.in).nextLine();
 
-        Disciplina disciplina = DisciplinaManager.findDisciplina(id);
+        Disciplina disciplina = DisciplinaManager.getInstance().findDisciplina(id);
 
         boolean matriculado = this.gradeCurricular.add(disciplina);
 
+        // Talvez dê erro, pq collection so retorna "true", não false
         if (matriculado) {
             System.out.println("Matriculado na disciplina: " + disciplina.getNome());
         } else {
@@ -65,7 +66,7 @@ public class Aluno implements IPessoa {
 
         String id = new Scanner(System.in).nextLine();
 
-        Disciplina disciplina = DisciplinaManager.findDisciplina(id);
+        Disciplina disciplina = DisciplinaManager.getInstance().findDisciplina(id);
 
         boolean desmatriculado = this.gradeCurricular.remove(disciplina);
 

@@ -18,12 +18,20 @@ public class UsuarioManager {
     	return pessoas;
     }
 
-    public UsuarioManager() {
+    private static UsuarioManager instance;
+
+    private UsuarioManager() {
         try {
             this.carregarUsuarios("database/usuarios.csv");
         } catch (FileNotFoundException e) {
             System.out.print("Erro: Arquivo não encontrado: " + e.getMessage());
         }
+    }
+
+    public static UsuarioManager getInstance() {
+        if (instance == null) { instance = new UsuarioManager(); }
+
+        return instance;
     }
 
     public void carregarUsuarios(String path) throws FileNotFoundException {

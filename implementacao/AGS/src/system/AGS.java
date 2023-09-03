@@ -15,10 +15,6 @@ public class AGS {
     public Pessoa pessoaLogada;
 
     public AGS() {
-        new UsuarioManager();
-        new DisciplinaManager();
-        new MatriculaManager();
-        new ClassesManager();
         periodoMatricula = true;
     }
 
@@ -45,11 +41,11 @@ public class AGS {
         }
     }
 
-    public void actionMenu() {
+    public void acaoMenu() {
         while (option != 0) {
             System.out.println("\n-------------------- AGS --------------------");
             System.out.println("Seja bem-vindo(a), " + pessoaLogada.getNome());
-            System.out.println("Período de matrículas aberto: " + periodoMatricula);
+            System.out.println("Período de matrículas aberto: " + (periodoMatricula ? "Sim" : "Não"));
             System.out.println("\nDigite o numero da operação para realizá-la:");
             System.out.println("\n0 - Sair");
             pessoaLogada.getTipo().exibirMenu();

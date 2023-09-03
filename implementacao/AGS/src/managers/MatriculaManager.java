@@ -11,12 +11,20 @@ import java.util.Scanner;
 
 public class MatriculaManager {
 
-    public MatriculaManager() {
+    private static MatriculaManager instance;
+
+    private MatriculaManager() {
         try {
             this.carregarMatriculas("database/matriculas.csv");
         } catch (FileNotFoundException e) {
             System.out.print("Erro: Arquivo não encontrado: " + e.getMessage());
         }
+    }
+
+    public static MatriculaManager getInstance() {
+        if (instance == null) { instance = new MatriculaManager(); }
+
+        return instance;
     }
 
     public void carregarMatriculas(String path) throws FileNotFoundException {
@@ -54,7 +62,7 @@ public class MatriculaManager {
                 return;
             }
 
-            Disciplina disciplina = DisciplinaManager.findDisciplina(dados[1]);
+            Disciplina disciplina = DisciplinaManager.getInstance().findDisciplina(dados[1]);
 
             disciplina.adicionarAluno(pessoa);
 
@@ -75,9 +83,9 @@ public class MatriculaManager {
 	            return;
 	        }
 
-	        Disciplina disciplina = DisciplinaManager.findDisciplina(dados[1]);
+	        Disciplina disciplina = DisciplinaManager.getInstance().findDisciplina(dados[1]);
 
-	        ((Aluno) pessoa.getTipo()).matricularEmDisciplina(disciplina);
+	        ((Aluno) pessoa.getTipo()).realizarMatriculaNaMemoria(disciplina);
 
     	} catch (ObjectNotFoundException e) {
     		System.out.println(e.getMessage());

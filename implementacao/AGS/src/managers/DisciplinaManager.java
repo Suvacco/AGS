@@ -13,12 +13,20 @@ public class DisciplinaManager {
 
     private static Set<Disciplina> disciplinas = new HashSet<>();
 
-    public DisciplinaManager() {
+    private static DisciplinaManager instance;
+
+    private DisciplinaManager() {
         try {
             this.carregarDisciplinas("database/disciplinas.csv");
         } catch (FileNotFoundException e) {
             System.out.print("Erro: Arquivo não encontrado: " + e.getMessage());
         }
+    }
+
+    public static DisciplinaManager getInstance() {
+        if (instance == null) { instance = new DisciplinaManager(); }
+
+        return instance;
     }
     
     public static Set<Disciplina> getDisciplinas() {
@@ -68,7 +76,7 @@ public class DisciplinaManager {
         scanner.close();
     }
 
-    public static Disciplina findDisciplina(String id) throws ObjectNotFoundException {
+    public Disciplina findDisciplina(String id) throws ObjectNotFoundException {
         return disciplinas.stream()
                 .filter(disciplina -> disciplina.getId().equals(id))
                 .findFirst()
