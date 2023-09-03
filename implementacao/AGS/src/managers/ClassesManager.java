@@ -1,6 +1,7 @@
 package managers;
 
 import exceptions.ObjectNotFoundException;
+import models.Disciplina;
 import models.user.Pessoa;
 import models.user.instances.*;
 
@@ -34,20 +35,20 @@ public class ClassesManager {
             } catch (NullPointerException e) {
                 System.out.println(line + ":" + split);
             }
-
             line++;
         }
-
         scanner.close();
     }
 
     public void cadastrarClasseEmProfessor(String dados[]) {
         Pessoa professor;
+        Disciplina disciplina;
 
         try {
             professor = UsuarioManager.findUsuario(dados[0]);
+            disciplina = DisciplinaManager.findDisciplina(dados[1]);
+            ((Professor) professor.getTipo()).cadastrarEmDisciplina(disciplina);
 
-            ((Professor) professor.getTipo()).cadastrarEmDisciplina((dados[1]));
         } catch (ObjectNotFoundException e) {
             System.out.println(e.getMessage());
         }

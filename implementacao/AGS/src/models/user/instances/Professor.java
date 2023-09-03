@@ -24,8 +24,8 @@ public class Professor implements IPessoa {
     @Override
     public void exibirMenu() {
         System.out.println("""
-            1 - Visualizar minhas classes
-            2 - Visualizar alunos por classe
+        1 - Visualizar minhas classes
+        2 - Visualizar alunos por classe
         """);
 
         System.out.print("OP: ");
@@ -41,8 +41,8 @@ public class Professor implements IPessoa {
 		}
     }
 
-    public void cadastrarEmDisciplina(String idDisciplina) {
-        this.idsClasses.add(idDisciplina);
+    public void cadastrarEmDisciplina(Disciplina disciplina) {
+        this.idsClasses.add(disciplina.getId());
     }
 
     public void imprimirDisciplinas() {
@@ -68,5 +68,4 @@ public class Professor implements IPessoa {
             }
         });
     }
-
 }

@@ -7,10 +7,109 @@ import managers.DisciplinaManager;
 import models.Disciplina;
 import models.user.Pessoa;
 import models.user.IPessoa;
+import system.AGS;
 
 public class Secretario implements IPessoa {
-	
+
+    // Atributos
 	private static Scanner scanner = new Scanner(System.in);
+
+    @Override
+    public void exibirMenu() {
+
+        String idDisciplina;
+
+        System.out.println("""
+        1 - Gerenciar disciplinas
+        2 - Gerenciar professores
+        3 - Gerenciar alunos
+        4 - Gerenciar curriculo semestral
+        5 - Alterar período de matrículas
+        """);
+
+        String option = scanner.nextLine();
+
+        switch (Integer.parseInt(option)) {
+
+            // GERENCIAR DISCIPLINAS
+            case 1:
+                System.out.println("""
+                1 - Visualizar disciplinas"
+                2 - Adicionar disciplinas
+                3 - Remover disciplinas
+                4 - Renomear disciplinas
+                """);
+
+                System.out.print("OP: ");
+                String option1 = scanner.nextLine();
+
+                switch(Integer.parseInt(option1)) {
+                    case 1: // Visualizar disciplinas
+                        visualizarDisciplinas();
+                        break;
+
+                    case 2: // Adicionar disciplinas
+                        System.out.println("Digite o nome da disciplina");
+                        String nomeDisciplina = scanner.nextLine();
+                        System.out.println("Digite o ID da disciplina");
+                        idDisciplina = scanner.nextLine();
+
+                        Disciplina novaDisciplina = new Disciplina(nomeDisciplina, idDisciplina);
+
+                        adicionarDisciplina(novaDisciplina);
+                        break;
+
+                    case 3: // Remover disciplinas
+                        System.out.println("Digite o ID da disciplina que deseja remover");
+                        idDisciplina = scanner.nextLine();
+
+                        try {
+                            removerDisciplina(DisciplinaManager.findDisciplina(idDisciplina));
+                        } catch (ObjectNotFoundException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+
+                    case 4: // Renomear disciplinas
+                        System.out.println("Digite o ID da discplina que deseja renomear");
+                        idDisciplina = scanner.nextLine();
+                        System.out.println("Digite o novo nome da disciplina");
+                        String novoNome = scanner.nextLine();
+
+                        try {
+                            renomearDisciplina(DisciplinaManager.findDisciplina(idDisciplina), novoNome);
+                        } catch (ObjectNotFoundException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                }
+
+                break;
+
+            // GERENCIAR PROFESSORES
+            case 2:
+                break;
+
+            // GERENCIAR ALUNOS
+            case 3:
+                break;
+
+            // GERENCIAR CURRÍCULO
+            case 4:
+                break;
+
+            // ALTERAR PERÍODO DE MATRÍCULA
+            case 5:
+                alterarPeriodoMatricula();
+                break;
+        }
+
+        scanner.close();
+    }
+
+    private void alterarPeriodoMatricula() {
+        AGS.alterarPeriodoMatricula();
+    }
 
     private void gerarCurriculo() {
 
@@ -19,6 +118,7 @@ public class Secretario implements IPessoa {
     /*
         GERENCIAR DISCIPLINAS
      */
+
     private void visualizarDisciplinas() {
 
     }
@@ -48,7 +148,7 @@ public class Secretario implements IPessoa {
         if (disciplina == null)
             throw new NullPointerException("A disciplina não pode ser null");
 
-        ((Professor) professorResponsavel.getTipo()).cadastrarEmDisciplina(disciplina.getId());
+        ((Professor) professorResponsavel.getTipo()).cadastrarEmDisciplina(disciplina);
     }
 
     /*
@@ -89,82 +189,5 @@ public class Secretario implements IPessoa {
 
     private void renomearAluno(Pessoa aluno, String novoNome) {
         aluno.renomear(novoNome);
-    }
-
-    @Override
-    public void exibirMenu() {
-    	
-    	String idDisciplina;
-    	
-        System.out.println("1- Gerenciar Disciplinas");
-        System.out.println("2- Gerenciar Professores");
-        System.out.println("3- Gerenciar Alunos");
-        System.out.println("4- Gerenciar Curriculo Semestral");
-        
-        String option = scanner.nextLine();
-        
-        switch (Integer.parseInt(option)) {
-        	case 1:
-        		System.out.println("1- Visualizar disciplinas");
-        		System.out.println("2- Adicionar disciplinas");
-        		System.out.println("3- Remover disciplinas");
-        		System.out.println("4- Renomear disciplinas");
-
-                System.out.print("OP: ");
-        		String option1 = scanner.nextLine();
-        		
-        		switch(Integer.parseInt(option1)) {
-        			case 1: 
-        				visualizarDisciplinas();
-        				break;
-        				
-        			case 2:
-        				System.out.println("Digite o nome da disciplina");
-        				String nomeDisciplina = scanner.nextLine();
-        				System.out.println("Digite o ID da disciplina");
-        				idDisciplina = scanner.nextLine();
-        				
-        				Disciplina novaDisciplina = new Disciplina(nomeDisciplina, idDisciplina);
-        				
-        				adicionarDisciplina(novaDisciplina);
-        				break;
-        				
-        			case 3:
-        				System.out.println("Digite o ID da disciplina que deseja remover");
-        				idDisciplina = scanner.nextLine();
-        				
-						try {
-							removerDisciplina(DisciplinaManager.findDisciplina(idDisciplina));
-						} catch (ObjectNotFoundException e) {
-							e.printStackTrace();
-						}
-        				break;
-        				
-        			case 4:
-        				System.out.println("Digite o ID da discplina que deseja renomear");
-        				idDisciplina = scanner.nextLine();
-        				System.out.println("Digite o novo nome da disciplina");
-        				String novoNome = scanner.nextLine();
-        				
-						try {
-							renomearDisciplina(DisciplinaManager.findDisciplina(idDisciplina), novoNome);
-						} catch (ObjectNotFoundException e) {
-							e.printStackTrace();
-						}
-        				
-        				break;
-        		}
-        		
-        		break;
-        		
-        	case 2:
-        		break;
-        		
-        	case 3:
-        		break;
-        		
-        	case 4:
-        		break;
-		}
     }
 }
