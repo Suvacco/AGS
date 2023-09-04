@@ -4,6 +4,7 @@ import exceptions.ObjectNotFoundException;
 import managers.DisciplinaManager;
 import models.Disciplina;
 import models.user.IPessoa;
+import system.AGS;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,18 +26,22 @@ public class Aluno implements IPessoa {
     }
 
     // Métodos
-
-    /*
-    Isso aqui faz sentido? Pq tipo, ta parecendo que a disciplina ta matriculando em você
-    não que você está matriculando na disciplina. O obj "Disciplina" deveria ter uma lista de pessoas
-    */
-    // Dúvida
-    
     public void realizarMatriculaNaMemoria(Disciplina disciplina) {
     	this.gradeCurricular.add(disciplina);
     }
-    
+
     public void matricularEmDisciplina() throws ObjectNotFoundException {
+
+        if (!AGS.isPeriodoMatricula()) {
+            System.out.println("Erro: Não é possível realizar matrículas no momento!");
+            return;
+        }
+
+        if (gradeCurricular.size() >= 6) {
+            System.out.println("Erro: Você já se matriculou no máximo permitido de disciplinas!");
+            return;
+        }
+
         DisciplinaManager.getInstance().exibirDisciplinas();
 
         System.out.println("Digite o id da disciplina que gostaria de se matricular");
@@ -62,7 +67,7 @@ public class Aluno implements IPessoa {
     public void cancelarMatriculaDisciplina() throws ObjectNotFoundException {
         DisciplinaManager.getInstance().exibirDisciplinas();
 
-        System.out.println("Digite o id da disciplina que gostaria de se desmatricular");
+        System.out.println("Digite o id da disciplina da qual você gostaria de se desmatricular");
 
         String id = new Scanner(System.in).nextLine();
 
@@ -85,7 +90,6 @@ public class Aluno implements IPessoa {
     @Override
     public void exibirMenu() {
         try {
-
             Scanner scanner = new Scanner(System.in);
 
             System.out.println("1 - Matricular");

@@ -63,7 +63,6 @@ public class DisciplinaManager {
 
         while (scanner.hasNextLine()) {
             String[] split = scanner.nextLine().split(",");
-            System.out.println(split[0]);
 
             try {
                 adicionarDisciplinaNoSistema(split);
