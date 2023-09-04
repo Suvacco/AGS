@@ -22,7 +22,7 @@ public class UsuarioManager {
 
     private UsuarioManager() {
         try {
-            this.carregarUsuarios("database/usuarios.csv");
+            this.carregarUsuarios("implementacao/AGS/database/usuarios.csv");
         } catch (FileNotFoundException e) {
             System.out.print("Erro: Arquivo não encontrado: " + e.getMessage());
         }
@@ -56,7 +56,7 @@ public class UsuarioManager {
         scanner.close();
     }
     
-    public static void imprimirDisciplinasDosProfessores(Professor professor) {
+    public void imprimirDisciplinasDosProfessores(Professor professor) {
         pessoas.forEach(pessoa -> {
             if (pessoa.getTipo() instanceof Professor) {
                 ((Professor) pessoa.getTipo()).imprimirDisciplinas();
@@ -74,7 +74,7 @@ public class UsuarioManager {
         pessoas.add(new Pessoa(id, senha, nome, tipo));
     }
     
-    public static Pessoa findUsuario(String id) throws ObjectNotFoundException {
+    public Pessoa findUsuario(String id) throws ObjectNotFoundException {
         return pessoas.stream()
                 .filter(pessoa -> pessoa.getId().equals(id))
                 .findFirst()

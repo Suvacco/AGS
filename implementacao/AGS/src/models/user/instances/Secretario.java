@@ -127,14 +127,14 @@ public class Secretario implements IPessoa {
         if (disciplina == null)
             throw new NullPointerException("A disciplina não pode ser null");
 
-        DisciplinaManager.adicionarDisciplinaNoSistema(disciplina);
+        DisciplinaManager.getInstance().adicionarDisciplinaNoSistema(disciplina);
     }
 
     private void removerDisciplina(Disciplina disciplina) {
         if (disciplina == null)
             throw new NullPointerException("A disciplina não pode ser null");
 
-        DisciplinaManager.removerDisciplinaDoSistema(disciplina);
+        DisciplinaManager.getInstance().removerDisciplinaDoSistema(disciplina);
     }
 
     private void renomearDisciplina(Disciplina disciplina, String novoNome) {

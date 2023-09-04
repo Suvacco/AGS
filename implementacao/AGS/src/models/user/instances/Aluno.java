@@ -37,7 +37,7 @@ public class Aluno implements IPessoa {
     }
     
     public void matricularEmDisciplina() throws ObjectNotFoundException {
-        DisciplinaManager.exibirDisciplinas();
+        DisciplinaManager.getInstance().exibirDisciplinas();
 
         System.out.println("Digite o id da disciplina que gostaria de se matricular");
 
@@ -60,7 +60,7 @@ public class Aluno implements IPessoa {
     }
 
     public void cancelarMatriculaDisciplina() throws ObjectNotFoundException {
-        DisciplinaManager.exibirDisciplinas();
+        DisciplinaManager.getInstance().exibirDisciplinas();
 
         System.out.println("Digite o id da disciplina que gostaria de se desmatricular");
 

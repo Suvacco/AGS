@@ -15,7 +15,7 @@ public class MatriculaManager {
 
     private MatriculaManager() {
         try {
-            this.carregarMatriculas("database/matriculas.csv");
+            this.carregarMatriculas("implementacao/AGS/database/matriculas.csv");
         } catch (FileNotFoundException e) {
             System.out.print("Erro: Arquivo não encontrado: " + e.getMessage());
         }
@@ -52,7 +52,7 @@ public class MatriculaManager {
 
     private void cadastrarAlunoEmDisciplina(String[] dados) {
         try {
-            Pessoa pessoa = UsuarioManager.findUsuario(dados[0]);
+            Pessoa pessoa = UsuarioManager.getInstance().findUsuario(dados[0]);
 
             if (pessoa == null) {
                 return;
@@ -73,7 +73,7 @@ public class MatriculaManager {
 
     public void cadastrarMatriculaEmAluno(String dados[]) {
     	try {
-	        Pessoa pessoa = UsuarioManager.findUsuario(dados[0]);
+	        Pessoa pessoa = UsuarioManager.getInstance().findUsuario(dados[0]);
 
 	        if (pessoa == null) {
 	            return;

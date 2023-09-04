@@ -53,7 +53,7 @@ public class AGS {
     }
 
     public void logar(String idUsuario, String senhaUsuario) throws ObjectNotFoundException, IllegalArgumentException {
-        Pessoa pessoa = UsuarioManager.findUsuario(idUsuario);
+        Pessoa pessoa = UsuarioManager.getInstance().findUsuario(idUsuario);
 
         if (! pessoa.getSenha().equals(senhaUsuario)) {
             throw new IllegalArgumentException("Senha incorreta");

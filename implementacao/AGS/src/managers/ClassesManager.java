@@ -15,7 +15,7 @@ public class ClassesManager {
     private static ClassesManager instance;
     private ClassesManager() {
         try {
-            this.carregarClasses("database/classes.csv");
+            this.carregarClasses("implementacao/AGS/database/classes.csv");
         } catch (FileNotFoundException e) {
             System.out.print("Erro: Arquivo não encontrado: " + e.getMessage());
         }
@@ -52,7 +52,7 @@ public class ClassesManager {
         Disciplina disciplina;
 
         try {
-            professor = UsuarioManager.findUsuario(dados[0]);
+            professor = UsuarioManager.getInstance().findUsuario(dados[0]);
             disciplina = DisciplinaManager.getInstance().findDisciplina(dados[1]);
             ((Professor) professor.getTipo()).cadastrarEmDisciplina(disciplina);
 
