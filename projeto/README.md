@@ -26,3 +26,11 @@ Todos os usuários do sistema têm senhas que são utilizadas para validação d
 
 ## Diagrama de Caso de Uso
 ![Diagrama de Caso de Uso](./diagrama_de_caso_de_uso/Diagrama%20de%20Caso%20de%20Uso.jpg)
+
+## Diagramas de Classes
+### Models
+![Diagrama de Classes - Models](./diagrama_de_classes/diagram_de_classes_models.drawio.png)
+### Managers
+![Diagrama de Classes - Managers](./diagrama_de_classes/diagrama_classe_managers.drawio.png)
+### Sistema
+![Diagrama de Classes - Sistema](./diagrama_de_classes/diagrama_classe_sistema.drawio.png)
