@@ -2,6 +2,7 @@ package managers;
 
 import exceptions.ObjectNotFoundException;
 import models.user.Pessoa;
+import models.user.instances.Aluno;
 import models.user.instances.Professor;
 
 import java.io.File;
@@ -56,12 +57,8 @@ public class UsuarioManager {
         scanner.close();
     }
     
-    public void imprimirDisciplinasDosProfessores(Professor professor) {
-        pessoas.forEach(pessoa -> {
-            if (pessoa.getTipo() instanceof Professor) {
-                ((Professor) pessoa.getTipo()).imprimirDisciplinas();
-            }
-        });
+    public static void adicionarUsuarioNoSistema(Pessoa pessoa) {
+        pessoas.add(pessoa);
     }
 
     private void adicionarUsuarioNoSistema(String[] dados) {
@@ -73,7 +70,47 @@ public class UsuarioManager {
 
         pessoas.add(new Pessoa(id, senha, nome, tipo));
     }
-    
+
+    public static void removerUsuarioDoSistema(Pessoa pessoa) throws ObjectNotFoundException {
+        if (pessoas.contains(pessoa)) {
+            pessoas.remove(pessoa);
+        } else {
+            throw new ObjectNotFoundException("Erro: não foi possível remover o usuário ID: " +  pessoa.getId() + " pois ele não existe no sistema");
+        }
+    }
+
+    public static void renomearUsuario(Pessoa pessoa, String novoNome) throws ObjectNotFoundException {
+        if (pessoas.contains(pessoa)) {
+            pessoa.renomear(novoNome);
+        } else {
+            throw new ObjectNotFoundException("Erro: não foi possível renomear o usuário ID: " +  pessoa.getId() + " pois ele não existe no sistema");
+        }
+    }
+
+    public static void imprimirProfessores() {
+        pessoas.forEach(pessoa -> {
+            if (pessoa.getTipo() instanceof Professor) {
+                System.out.println(pessoa);
+            }
+        });
+    }
+
+    public static void imprimirAlunos() {
+        pessoas.forEach(pessoa -> {
+            if (pessoa.getTipo() instanceof Aluno) {
+                System.out.println(pessoa);
+            }
+        });
+    }
+
+    public void imprimirDisciplinasDosProfessores(Professor professor) {
+        pessoas.forEach(pessoa -> {
+            if (pessoa.getTipo() instanceof Professor) {
+                ((Professor) pessoa.getTipo()).imprimirDisciplinas();
+            }
+        });
+    }
+
     public Pessoa findUsuario(String id) throws ObjectNotFoundException {
         return pessoas.stream()
                 .filter(pessoa -> pessoa.getId().equals(id))
