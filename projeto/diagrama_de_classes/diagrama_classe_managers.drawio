@@ -1,50 +1,53 @@
-<mxfile host="app.diagrams.net" modified="2023-09-03T12:10:39.986Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/116.0" etag="A8XeVBBe0zHva5UrbLkV" version="21.6.9" type="device">
+<mxfile host="app.diagrams.net" modified="2023-09-04T10:26:04.652Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/117.0" etag="CdgehQu8NmEoyn6jFm6u" version="21.7.2" type="device">
   <diagram name="Página-1" id="4Zgo0IUxcaAbGARyPmpu">
     <mxGraphModel dx="1434" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="jGw6-l2iVleldYacMnZM-1" value="DisciplinaManager" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="60" y="40" width="370" height="170" as="geometry" />
+          <mxGeometry x="60" y="40" width="370" height="230" as="geometry" />
         </mxCell>
-        <mxCell id="jGw6-l2iVleldYacMnZM-2" value="&lt;u&gt;- disciplinas : Set&amp;lt;Disciplinas&amp;gt;&lt;/u&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="jGw6-l2iVleldYacMnZM-1" vertex="1">
-          <mxGeometry y="26" width="370" height="26" as="geometry" />
+        <mxCell id="jGw6-l2iVleldYacMnZM-2" value="&lt;div&gt;&lt;u&gt;- disciplinas : Set&amp;lt;Disciplinas&amp;gt;&lt;/u&gt;&lt;/div&gt;&lt;div&gt;&lt;u&gt;- &lt;/u&gt;instace: DisciplinaManager&lt;u&gt;&lt;br&gt;&lt;/u&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="jGw6-l2iVleldYacMnZM-1" vertex="1">
+          <mxGeometry y="26" width="370" height="44" as="geometry" />
         </mxCell>
-        <mxCell id="jGw6-l2iVleldYacMnZM-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="jGw6-l2iVleldYacMnZM-1" vertex="1">
-          <mxGeometry y="52" width="370" height="8" as="geometry" />
-        </mxCell>
-        <mxCell id="jGw6-l2iVleldYacMnZM-4" value="&lt;div&gt;&lt;u&gt;+ exibirDisciplinas(): void&lt;/u&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;u&gt;+ adicionarDisciplinaNoSistema(disciplina:Disciplina): void&lt;br&gt;&lt;/u&gt;&lt;/div&gt;&lt;div&gt;&lt;u&gt;+ removerDisciplinaDoSistema(disciplina: Disciplina): void&lt;/u&gt;&lt;/div&gt;&lt;div&gt;&lt;u&gt;+ renomearDisciplina(disciplina: Disciplina, novoNome: String): void&lt;/u&gt;&lt;/div&gt;&lt;div&gt;+ adicionarDisciplinaNoSistema( dados: String[]) : void&lt;/div&gt;&lt;div&gt;+ carregarDisciplina( path: String) : void&lt;/div&gt;&lt;div&gt;&lt;u&gt;+ findDisciplina( id: String): Disciplina&lt;/u&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="jGw6-l2iVleldYacMnZM-1" vertex="1">
-          <mxGeometry y="60" width="370" height="110" as="geometry" />
+        <mxCell id="jGw6-l2iVleldYacMnZM-4" value="&lt;div&gt;+ &lt;u&gt;getInstace(): DisciplinaManager&lt;/u&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;+ getDisciplina(): Set&amp;lt;Disciplina&amp;gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;u&gt;+ exibirDisciplinas(): void&lt;/u&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;u&gt;+ adicionarDisciplinaNoSistema(disciplina:Disciplina): void&lt;br&gt;&lt;/u&gt;&lt;/div&gt;&lt;div&gt;&lt;u&gt;+ removerDisciplinaDoSistema(disciplina: Disciplina): void&lt;/u&gt;&lt;/div&gt;&lt;div&gt;&lt;u&gt;+ renomearDisciplina(disciplina: Disciplina, novoNome: String): void&lt;/u&gt;&lt;/div&gt;&lt;div&gt;+ adicionarDisciplinaNoSistema( dados: String[]) : void&lt;/div&gt;&lt;div&gt;+ carregarDisciplina( path: String) : void&lt;/div&gt;&lt;div&gt;&lt;u&gt;+ findDisciplina( id: String): Disciplina&lt;/u&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="jGw6-l2iVleldYacMnZM-1" vertex="1">
+          <mxGeometry y="70" width="370" height="160" as="geometry" />
         </mxCell>
         <mxCell id="jGw6-l2iVleldYacMnZM-5" value="UsuarioManager" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="60" y="260" width="370" height="150" as="geometry" />
+          <mxGeometry x="60" y="320" width="370" height="260" as="geometry" />
         </mxCell>
-        <mxCell id="jGw6-l2iVleldYacMnZM-6" value="&lt;u&gt;- pessoas : Set&amp;lt;Pessoa&amp;gt;&lt;/u&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="jGw6-l2iVleldYacMnZM-5" vertex="1">
-          <mxGeometry y="26" width="370" height="26" as="geometry" />
+        <mxCell id="jGw6-l2iVleldYacMnZM-6" value="&lt;div&gt;&lt;u&gt;- pessoas : Set&amp;lt;Pessoa&amp;gt;&lt;br&gt;&lt;/u&gt;&lt;/div&gt;&lt;div&gt;&lt;u&gt;- instance: UsuarioManager&lt;br&gt;&lt;/u&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="jGw6-l2iVleldYacMnZM-5" vertex="1">
+          <mxGeometry y="26" width="370" height="44" as="geometry" />
         </mxCell>
         <mxCell id="jGw6-l2iVleldYacMnZM-7" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="jGw6-l2iVleldYacMnZM-5" vertex="1">
-          <mxGeometry y="52" width="370" height="8" as="geometry" />
+          <mxGeometry y="70" width="370" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="jGw6-l2iVleldYacMnZM-8" value="+ carregarUsuarios( path: String) : void&lt;div&gt;+ &lt;u&gt;findUsuario( id: String): Pessoa&lt;/u&gt;&lt;/div&gt;&lt;div&gt;+ &lt;u&gt;imprimirDisciplinaDosProfessores(professor: Professor): void&lt;/u&gt;&lt;/div&gt;&lt;div&gt;-&amp;nbsp; adicionarUsuarioNoSistema(dados: String[]): void&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="jGw6-l2iVleldYacMnZM-5" vertex="1">
-          <mxGeometry y="60" width="370" height="90" as="geometry" />
+        <mxCell id="jGw6-l2iVleldYacMnZM-8" value="&lt;div&gt;+ &lt;u&gt;getPessoa(): &amp;lt;Set&amp;gt;Pessoas&lt;/u&gt;&lt;/div&gt;+ &lt;u&gt;getInstance(): UsuarioManager&lt;/u&gt;&lt;br&gt;&lt;div&gt;+ carregarUsuarios( path: String) : void&lt;/div&gt;&lt;div&gt;-&amp;nbsp; &lt;u&gt;adicionarUsuarioNoSistema(pessoa: Pessoa): void&lt;/u&gt;&lt;/div&gt;&lt;div&gt;-&amp;nbsp; adicionarUsuarioNoSistema(dados: String[]): void&lt;/div&gt;&lt;div&gt;+ &lt;u&gt;removerUsuarioDoSistema(pessoa: Pessoa): void&lt;/u&gt;&lt;/div&gt;&lt;div&gt;&lt;u&gt;+ renomearUsuario(pessoa: Pessoa, novoNome: String): void&lt;br&gt;&lt;/u&gt;&lt;/div&gt;&lt;div&gt;+ &lt;u&gt;imprimirProfessor(): void&lt;/u&gt;&lt;/div&gt;&lt;div&gt;+ &lt;u&gt;imprimirAluno(): void&lt;/u&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;+ &lt;u&gt;findUsuario( id: String): Pessoa&lt;/u&gt;&lt;/div&gt;&lt;div&gt;+ &lt;u&gt;imprimirDisciplinaDosProfessores(professor: Professor): void&lt;/u&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="jGw6-l2iVleldYacMnZM-5" vertex="1">
+          <mxGeometry y="78" width="370" height="182" as="geometry" />
         </mxCell>
         <mxCell id="jGw6-l2iVleldYacMnZM-9" value="MatriculaManager" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="60" y="440" width="370" height="100" as="geometry" />
+          <mxGeometry x="44" y="620" width="370" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="fCQEflehtRbZDlWdjGMY-4" value="- &lt;u&gt;instance: DisciplinaManager&lt;/u&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="jGw6-l2iVleldYacMnZM-9">
+          <mxGeometry y="26" width="370" height="26" as="geometry" />
         </mxCell>
         <mxCell id="jGw6-l2iVleldYacMnZM-11" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="jGw6-l2iVleldYacMnZM-9" vertex="1">
-          <mxGeometry y="26" width="370" height="8" as="geometry" />
+          <mxGeometry y="52" width="370" height="28" as="geometry" />
         </mxCell>
-        <mxCell id="jGw6-l2iVleldYacMnZM-12" value="&lt;div&gt;- cadastrarAlunoEmDisciplina(dados: String[]): void&lt;/div&gt;&lt;div&gt;+ cadastrarMatriculaEmAluno(dados: String[]): void&lt;br&gt;&lt;/div&gt;&lt;div&gt;+ carregarMatriculas(path: String) : void&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="jGw6-l2iVleldYacMnZM-9" vertex="1">
-          <mxGeometry y="34" width="370" height="66" as="geometry" />
+        <mxCell id="jGw6-l2iVleldYacMnZM-12" value="&lt;div&gt;+ &lt;u&gt;getInstance(): MatriculaManager&lt;/u&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- cadastrarAlunoEmDisciplina(dados: String[]): void&lt;/div&gt;&lt;div&gt;+ cadastrarMatriculaEmAluno(dados: String[]): void&lt;br&gt;&lt;/div&gt;&lt;div&gt;+ carregarMatriculas(path: String) : void&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="jGw6-l2iVleldYacMnZM-9" vertex="1">
+          <mxGeometry y="80" width="370" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="BAujKV77f37aT4v-G--A-5" value="ClassManager" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="60" y="590" width="370" height="80" as="geometry" />
+        <mxCell id="BAujKV77f37aT4v-G--A-5" value="ClassManager" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="44" y="810" width="370" height="150" as="geometry" />
         </mxCell>
-        <mxCell id="BAujKV77f37aT4v-G--A-7" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="BAujKV77f37aT4v-G--A-5">
-          <mxGeometry y="26" width="370" height="8" as="geometry" />
+        <mxCell id="fCQEflehtRbZDlWdjGMY-2" value="- &lt;u&gt;instance: ClassManager&lt;/u&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="BAujKV77f37aT4v-G--A-5">
+          <mxGeometry y="26" width="370" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="BAujKV77f37aT4v-G--A-8" value="&lt;div&gt;+ carragarClasses(path: String): void&lt;/div&gt;&lt;div&gt;+ cadastrarClassseEmProfessor(dados: String[]): void&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="BAujKV77f37aT4v-G--A-5">
-          <mxGeometry y="34" width="370" height="46" as="geometry" />
+        <mxCell id="BAujKV77f37aT4v-G--A-7" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="BAujKV77f37aT4v-G--A-5" vertex="1">
+          <mxGeometry y="52" width="370" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="BAujKV77f37aT4v-G--A-8" value="&lt;div&gt;+ carragarClasses(path: String): void&lt;/div&gt;&lt;div&gt;+ cadastrarClassseEmProfessor(dados: String[]): void&lt;/div&gt;&lt;div&gt;+ &lt;u&gt;getInstance(): ClassManager&lt;/u&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="BAujKV77f37aT4v-G--A-5" vertex="1">
+          <mxGeometry y="80" width="370" height="70" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
