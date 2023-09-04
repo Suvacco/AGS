@@ -17,7 +17,7 @@ public class Curso {
     public Curso(String nome, int qtdCreditos, Set<Disciplina> disciplinas) {
         this.nome = nome;
         this.qtdCreditos = qtdCreditos;
-        this.disciplinas = new HashSet<>();
+        this.disciplinas = new HashSet<>(disciplinas);
     }
 
     // Métodos

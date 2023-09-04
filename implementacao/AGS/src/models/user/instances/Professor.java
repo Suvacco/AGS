@@ -50,7 +50,7 @@ public class Professor implements IPessoa {
 
         idsClasses.forEach(disciplina -> {
             try {
-                System.out.println("\t" + DisciplinaManager.getInstance().findDisciplina(disciplina));
+                System.out.println("- " + DisciplinaManager.getInstance().findDisciplina(disciplina));
             } catch (ObjectNotFoundException e) {
                 System.out.println(e.getMessage());
             }
@@ -60,7 +60,7 @@ public class Professor implements IPessoa {
     private void imprimirAlunosDeDisciplina() {
         idsClasses.forEach(id -> {
             try {
-                System.out.println("\n" + DisciplinaManager.getInstance().findDisciplina(id).getNome());
+                System.out.println("\t" + DisciplinaManager.getInstance().findDisciplina(id).getNome());
                 DisciplinaManager.getInstance().findDisciplina(id).imprimirAlunos();
 
             } catch (ObjectNotFoundException e) {

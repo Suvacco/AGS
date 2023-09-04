@@ -43,6 +43,6 @@ public class Disciplina {
 
     @Override
     public String toString() {
-        return "\nDisciplina: " + this.nome + "\tId: " + this.id;
+        return "Disciplina: " + this.nome + "| ID: " + this.id;
     }
 }

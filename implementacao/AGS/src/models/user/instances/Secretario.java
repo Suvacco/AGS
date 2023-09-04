@@ -186,16 +186,21 @@ public class Secretario implements IPessoa {
                 DisciplinaManager.getInstance().exibirDisciplinas();
                 System.out.println("Insira os IDs das disciplinas que deseja adicionar. Digite -1 para prosseguir.");
 
-                for (int i = 0; (!input.equals("-1")) | i < disciplinas.length; i++){
-                    System.out.println("ID: ");
+                for (int i = 0; i < disciplinas.length; i++){
+                    System.out.print("ID: ");
                     input = scanner.nextLine();
+
+                    if (input.equals("-1"))
+                        break;
+
                     disciplinas[i] = input;
                 }
 
                 Set<Disciplina> disciplinasCurriculo = gerarCurriculo(disciplinas);
                 Curso novoCurso = new Curso(nomeCurso, Integer.parseInt(qtdCreditos), disciplinasCurriculo);
 
-                System.out.println("Currículo gerado com sucesso!");
+                System.out.println("Currículo gerado com sucesso!\n");
+                System.out.println(novoCurso);
                 break;
 
             // ALTERAR PERÍODO DE MATRÍCULA
@@ -213,13 +218,16 @@ public class Secretario implements IPessoa {
         Set<Disciplina> disciplinasCurriculo = new HashSet<>();
 
         for (int i = 0; i < idsDisciplinas.length; i++) {
+            Disciplina d = null;
+
             if (idsDisciplinas[i] != null) {
                 try {
-                    Disciplina d = DisciplinaManager.getInstance().findDisciplina(idsDisciplinas[i]);
-                    disciplinasCurriculo.add(d);
+                    d = DisciplinaManager.getInstance().findDisciplina(idsDisciplinas[i]);
                 } catch (ObjectNotFoundException e) {
                     e.printStackTrace();
                 }
+
+                disciplinasCurriculo.add(d);
             }
         }
 

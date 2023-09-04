@@ -2,6 +2,7 @@ package system;
 
 import exceptions.ObjectNotFoundException;
 import managers.*;
+import models.Disciplina;
 import models.user.Pessoa;
 
 import java.util.Scanner;
@@ -16,6 +17,9 @@ public class AGS {
 
     public AGS() {
         periodoMatricula = true;
+        DisciplinaManager.getInstance();
+        MatriculaManager.getInstance();
+        ClassesManager.getInstance();
     }
 
     public void loginMenu() {
