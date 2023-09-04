@@ -17,7 +17,7 @@ public class DisciplinaManager {
 
     private DisciplinaManager() {
         try {
-            this.carregarDisciplinas("implementacao/AGS/database/disciplinas.csv");
+            this.carregarDisciplinas("database/disciplinas.csv");
         } catch (FileNotFoundException e) {
             System.out.print("Erro: Arquivo não encontrado: " + e.getMessage());
         }
@@ -28,13 +28,13 @@ public class DisciplinaManager {
 
         return instance;
     }
-    
+
     public Set<Disciplina> getDisciplinas() {
     	return disciplinas;
     }
 
     public void exibirDisciplinas() {
-        disciplinas.forEach(disciplina -> System.out.println(disciplina.getId() + " - " + disciplina.getNome()));
+        disciplinas.forEach(disciplina -> System.out.println(disciplina));
     }
 
     public void adicionarDisciplinaNoSistema(String[] dados) {
@@ -63,6 +63,7 @@ public class DisciplinaManager {
 
         while (scanner.hasNextLine()) {
             String[] split = scanner.nextLine().split(",");
+            System.out.println(split[0]);
 
             try {
                 adicionarDisciplinaNoSistema(split);

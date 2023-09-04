@@ -15,7 +15,7 @@ public class MatriculaManager {
 
     private MatriculaManager() {
         try {
-            this.carregarMatriculas("implementacao/AGS/database/matriculas.csv");
+            this.carregarMatriculas("database/matriculas.csv");
         } catch (FileNotFoundException e) {
             System.out.print("Erro: Arquivo não encontrado: " + e.getMessage());
         }

@@ -23,7 +23,7 @@ public class UsuarioManager {
 
     private UsuarioManager() {
         try {
-            this.carregarUsuarios("implementacao/AGS/database/usuarios.csv");
+            this.carregarUsuarios("database/usuarios.csv");
         } catch (FileNotFoundException e) {
             System.out.print("Erro: Arquivo não encontrado: " + e.getMessage());
         }

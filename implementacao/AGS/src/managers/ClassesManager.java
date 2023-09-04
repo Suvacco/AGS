@@ -15,7 +15,7 @@ public class ClassesManager {
     private static ClassesManager instance;
     private ClassesManager() {
         try {
-            this.carregarClasses("implementacao/AGS/database/classes.csv");
+            this.carregarClasses("database/classes.csv");
         } catch (FileNotFoundException e) {
             System.out.print("Erro: Arquivo não encontrado: " + e.getMessage());
         }
